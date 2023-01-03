@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Piedra, papel o tijeras </title>
+</head>
+<body>
+  <script>
+    let ContadorVic = 0
+    let ContadorDer = 0
+    let ContadorEmp = 0
+
+    function getComputerChoice(){
+        let num = Math.random() * 100
+        if (num < 33.3){
+            return "Piedra"
+        }else{
+            if (num > 66.6){
+            return "Tijera"
+            }else{
+            return "Papel"
+            }
+        }
+    }
+    function playround(ContadorVic, ContadorEmp, ContadorDer)
+    {
+        let PlayerChoice = prompt("Ingrese su eleccion", "Piedra, Papel o Tijera")
+        let ComputerChoice = getComputerChoice()
+        console.log("El jugador eligio: " + PlayerChoice)
+        console.log("La computadora eligio: " + ComputerChoice)
+        PlayerChoice = PlayerChoice.toUpperCase()
+        ComputerChoice = ComputerChoice.toUpperCase()
+        if (ComputerChoice == PlayerChoice){
+            return "Empate"
+        } 
+        else
+        {
+            if (PlayerChoice == "PIEDRA")
+            {
+                if (ComputerChoice == "TIJERA")
+                {
+                    return "Bien ahi ganaste"
+                }
+                else
+                {
+                    return "Mal ahi prri perdiste"
+                }
+            }
+            if (PlayerChoice == "TIJERA")
+            {
+                if (ComputerChoice == "PAPEL")
+                {
+                    return "Bien ahi ganaste"
+                }
+                else
+                {
+
+                    return "Mal ahi prri perdiste"
+                }
+            }
+            if (PlayerChoice == "PAPEL")
+            {
+                if (ComputerChoice == "PIEDRA")
+                {
+                    return "Bien ahi ganaste"
+                }
+                else
+                {
+                    return "Mal ahi prri perdiste"
+                }
+            }
+        }
+    }
+    console.log("EL JUEGO DEL TA-TE-Ti")
+    console.log("------------------------------------")
+    for (let i = 0; i < 5; i++)
+    {
+        let ronda = playround(0,0,0)
+        if (ronda == "Bien ahi ganaste")
+        {
+            ContadorVic = ContadorVic + 1
+            console.log("Ganaste!")
+        }
+        if (ronda == "Mal ahi prri perdiste")
+        {
+            ContadorDer = ContadorDer + 1
+            console.log("Empate")
+        }
+        if (ronda == "Empate")
+        {
+            ContadorEmp = ContadorEmp + 1
+            console.log("Perdiste uwu")
+        }
+        console.log(ContadorVic)
+        console.log(ContadorEmp)
+        console.log(ContadorDer)
+    }
+    console.log("----------------------------------------")
+    console.log("Rondas ganadas: " + ContadorVic)
+    console.log("Rondas empatadas "+ ContadorEmp)
+    console.log("Rondas perdidas: "+ ContadorDer)
+    console.log("----------------------------------------")
+    if (ContadorVic == ContadorDer)
+    {
+        console.log("Ha terminado en un empate")
+    }
+    if (ContadorVic > ContadorDer)
+    {
+        console.log("Felicidades! Ganaste!")
+    }
+    if (ContadorVic < ContadorDer)
+    {
+        console.log("A practicar mi rey")
+    }
+  </script>
+</body>
+</html>
