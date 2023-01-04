@@ -22,7 +22,7 @@
             }
         }
     }
-    function playround(ContadorVic, ContadorEmp, ContadorDer)
+    function playround()
     {
         let PlayerChoice = prompt("Ingrese su eleccion", "Piedra, Papel o Tijera")
         let ComputerChoice = getComputerChoice()
@@ -71,30 +71,37 @@
             }
         }
     }
+
+    function newgame()
+    {
+        for (let i = 0; i < 5; i++)
+        {
+            let ronda = playround()
+            if (ronda == "Bien ahi ganaste")
+            {
+                ContadorVic = ContadorVic + 1
+                console.log("Ganaste!")
+            }
+            if (ronda == "Mal ahi prri perdiste")
+            {
+                ContadorDer = ContadorDer + 1
+                console.log("Perdiste uwu")
+            }
+            if (ronda == "Empate")
+            {
+                ContadorEmp = ContadorEmp + 1
+                console.log("Empate")
+            }
+            console.log(ContadorVic)
+            console.log(ContadorEmp)
+            console.log(ContadorDer)
+        }
+    }
+
+
     console.log("EL JUEGO DEL TA-TE-Ti")
     console.log("------------------------------------")
-    for (let i = 0; i < 5; i++)
-    {
-        let ronda = playround(0,0,0)
-        if (ronda == "Bien ahi ganaste")
-        {
-            ContadorVic = ContadorVic + 1
-            console.log("Ganaste!")
-        }
-        if (ronda == "Mal ahi prri perdiste")
-        {
-            ContadorDer = ContadorDer + 1
-            console.log("Empate")
-        }
-        if (ronda == "Empate")
-        {
-            ContadorEmp = ContadorEmp + 1
-            console.log("Perdiste uwu")
-        }
-        console.log(ContadorVic)
-        console.log(ContadorEmp)
-        console.log(ContadorDer)
-    }
+    newgame()
     console.log("----------------------------------------")
     console.log("Rondas ganadas: " + ContadorVic)
     console.log("Rondas empatadas "+ ContadorEmp)
